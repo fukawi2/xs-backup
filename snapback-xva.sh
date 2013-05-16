@@ -292,7 +292,7 @@ for vm_uuid in $RUNNING_VMS; do
   vm_name="$(xe vm-list uuid=$vm_uuid | xe_param name-label)"
   logmsg "Processing $vm_name"
   echo $SECTION_BREAK
-  echo "=> Backup for $vm_name started at $(date) =="
+  echo "=> Backup for $vm_name started at $(date)"
 
   # Useful for testing, if we only want to process one VM
 #  if [ "$vm_name" != "testvm" ]; then
