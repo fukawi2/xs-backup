@@ -295,9 +295,9 @@ for vm_uuid in $RUNNING_VMS; do
   echo "=> Backup for $vm_name started at $(date) =="
 
   # Useful for testing, if we only want to process one VM
-  if [ "$vm_name" != "svr-app-tux2" ]; then
-      continue
-  fi
+#  if [ "$vm_name" != "testvm" ]; then
+#      continue
+#  fi
 
   # we assume we want to backup this vm unless the schedule
   # tells us otherwise. these vars should get explicitly set
