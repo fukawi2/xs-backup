@@ -9,8 +9,7 @@ Round <github@markround.com>:
 
 [http://www.markround.com/snapback](http://www.markround.com/snapback)
 
-[https://github.com/markround/XenServer-snapshot-backup](https://github.com
-/markround/XenServer-snapshot-backup)
+[https://github.com/markround/XenServer-snapshot-backup](https://github.com/markround/XenServer-snapshot-backup)
 
 ## Overview
 
@@ -22,10 +21,10 @@ backups, so if you have a 10GB VM and keep 7 previous copies you will need a
 total of 80GB disk space on your backup VM. Non-running VMs, and those not
 configured (as detailed below) will be skipped.
 
-*Important*: See [KB CTX123400](http://support.citrix.com/article/
-CTX123400). After backing up each VM, you will end up with a new VDI, so you
-may need to manually coalesce your VDIs again to reclaim disk space. This
-appears to have been fixed in 5.6FP1, however.
+*Important*: See [KB CTX123400](http://support.citrix.com/article/CTX123400).
+After backing up each VM, you will end up with a new VDI, so you may need to
+manually coalesce your VDIs again to reclaim disk space. This appears to have
+been fixed in 5.6FP1, however.
 
 ## Installation and Usage
 
