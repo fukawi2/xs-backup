@@ -1,13 +1,6 @@
 #!/bin/bash
-# snapback.sh 1.4
-# Simple script to create regular snapshot-based backups for Citrix Xenserver
-# Mark Round, scripts@markround.com
-# http://www.markround.com/snapback
-#
-# 1.4 : Modifications by Luis Davim to support XVA backups with independent scheduling
-# 1.3 : Added basic lockfile
-# 1.2 : Tidied output, removed VDIs before deleting snapshots and templates
-# 1.1 : Added missing force=true paramaters to snapshot uninstall calls.
+# xs-snapback; XenServer backup script.
+# Based on snapback.sh 1.4 by Mark Round, http://www.markround.com/snapback
 
 set -u  # fail on unbound vars
 set -e  # die on any error
