@@ -213,7 +213,7 @@ function cleanup_template_backups() {
     grep "$_vm_name-$BACKUP_SUFFIX" | \
     xe_param name-label | \
     sort -n | \
-    head -n-$retain_num | \
+    head -n-$_retain_num | \
     while read local _expired_backup ; do
       _expired_backup_uuid=$(xe template-list name-label="$_expired_backup" | xe_param uuid)
       delete_template $_expired_backup_uuid
