@@ -54,7 +54,7 @@ ymd_date=$(date +"%Y%m%d")
 
 function logmsg {
   local _msg=${1-}
-  logger -t xenserver-snapback "$_msg"
+  logger -t xs-snapback "$_msg"
   return 0
 }
 
