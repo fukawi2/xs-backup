@@ -214,7 +214,7 @@ function cleanup_template_backups() {
     xe_param name-label | \
     sort -n | \
     head -n-$_retain_num | \
-    while read local _expired_backup ; do
+    while read _expired_backup ; do
       _expired_backup_uuid=$(xe template-list name-label="$_expired_backup" | xe_param uuid)
       delete_template $_expired_backup_uuid
   done
