@@ -155,10 +155,14 @@ function prepare_vm_for_backup() {
   local _snapshot_name=$(snapshot_name ${_vm_name})
 
   # check for existing backup snapshot and delete if found
-  local _previous_snapshop=$(xe snapshot-list name-label="$_snapshot_name" | xe_param uuid)
-  if [ -n "$_previous_snapshop" ] ; then
-    logmsg "Deleting expired snapshot $_previous_snapshop"
-    delete_snapshot $_previous_snapshop
+  local _previous_snapshots=$(xe snapshot-list name-label="$_snapshot_name" | xe_param uuid)
+  if [ -n "$_previous_snapshots" ] ; then
+    # _previous_snapshots will be new-line delimited list if there are multiple
+    # old snapshots, so we need to loop over them
+    for X in "$_previous_snapshots" ; do
+      logmsg "Deleting expired snapshot $X"
+      delete_snapshot $X
+    done
   fi
 
   logmsg "Creating new snapshot '$_snapshot_name'"
