@@ -161,7 +161,7 @@ function prepare_vm_for_backup() {
     # old snapshots, so we need to loop over them
     for X in "$_previous_snapshots" ; do
       logmsg "Deleting expired snapshot $X"
-      delete_snapshot $X
+      delete_snapshot $X > /dev/null
     done
   fi
 
