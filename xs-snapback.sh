@@ -31,11 +31,16 @@ set -u
 
 # check the XVA SR is a valid mount point
 if [ -z "$XVA_SR" ]  ; then
-  echo "Usage: XVA SR does not appear to be a valid NFS or CIFS SR"
+  echo "Usage: $0 SR-UUID-for-Template-Backups SR-UUID-for-XVA-Backups"
+  echo "Both backup SR's must be either CIFS or NFS type"
   exit 1
 fi
 if ! mountpoint -q /var/run/sr-mount/"$XVA_SR/" ; then
   echo "Error: XVA SR does not appear to be a valid NFS or CIFS SR"
+  exit 1
+fi
+if ! mountpoint -q /var/run/sr-mount/"$TEMPLATE_SR/" ; then
+  echo "Error: Template SR does not appear to be a valid NFS or CIFS SR"
   exit 1
 fi
 
