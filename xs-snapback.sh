@@ -346,11 +346,17 @@ for vm_uuid in $RUNNING_VMS; do
   logmsg "Comparing template backup schedule..."
   echo "   Comparing template backup schedule..."
   check_schedule "$SCHEDULE" "$RETAIN" || SKIP_TEMPLATE=1
+  if [ $SKIP_TEMPLATE != '1' ] ; then
+    echo "     Schedule conditions are met"
+  fi
 
   ### Check XVA Schedule ####################################################
   logmsg "Comparing XVA backup schedule..."
   echo "   Comparing XVA backup schedule..."
   check_schedule "$XVA_SCHEDULE" "$XVA_RETAIN" || SKIP_XVA=1
+  if [ $SKIP_XVA != '1' ] ; then
+    echo "     Schedule conditions are met"
+  fi
 
   ### Is this VM scheduled to be backed up? #################################
   if [ "$SKIP_TEMPLATE" == "1" ] && [ "$SKIP_XVA" == "1" ]; then
