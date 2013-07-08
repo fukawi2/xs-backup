@@ -170,6 +170,13 @@ function prepare_vm_for_backup() {
     done
   fi
 
+  # check for any CD images connected to the virtual machine and unmount
+  local _cd_vbd_uuid="$(xe vbd-list type=CD empty=false vm-name-label="$_vm_name" | xe_param uuid)"
+  if [ -n "$_cd_vbd_uuid" ] ; then
+    # cd in the drive
+    xe vbd-eject uuid=$_cd_vbd_uuid
+  fi
+
   logmsg "Creating new snapshot '$_snapshot_name'"
   local _snapshot_uuid=$(xe vm-snapshot vm="$_vm_name" new-name-label="$_snapshot_name")
 
