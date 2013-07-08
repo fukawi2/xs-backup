@@ -84,11 +84,11 @@ function delete_snapshot() {
   # delete the associated vdi's first
   for _vdi_uuid in $(xe vbd-list vm-uuid=$_delete_uuid empty=false | xe_param "vdi-uuid"); do
     #echo "Deleting snapshot VDI : $_vdi_uuid"
-    xe vdi-destroy uuid=$_vdi_uuid
+    xe vdi-destroy uuid=$_vdi_uuid > /dev/null
   done
 
   # Now we can remove the snapshot itself
-  xe snapshot-uninstall uuid="$_delete_uuid" force=true
+  xe snapshot-uninstall uuid="$_delete_uuid" force=true > /dev/null
 }
 
 # See above - templates also seem to leave stray VDIs around...
@@ -97,11 +97,11 @@ function delete_template() {
 
   # delete the associated vdi's first
   for _vdi_uuid in $(xe vbd-list vm-uuid=$_delete_uuid empty=false | xe_param "vdi-uuid"); do
-    xe vdi-destroy uuid=$_vdi_uuid
+    xe vdi-destroy uuid=$_vdi_uuid > /dev/null
   done
 
   # Now we can remove the template itself
-  xe template-uninstall template-uuid=$_delete_uuid force=true
+  xe template-uninstall template-uuid=$_delete_uuid force=true > /dev/null
 }
 
 function check_schedule() {
