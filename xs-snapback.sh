@@ -414,7 +414,7 @@ if [ -n "$TEMPLATE_SR" ] ; then
   logmsg "Dumping VDB list to vdb-mapping.txt"
   xe vbd-list > /var/run/sr-mount/$TEMPLATE_SR/vbd-mapping.txt
   logmsg "Dumping pool meta-data"
-  xe-backup-metadata -c -k 10 -u $TEMPLATE_SR
+  /opt/xensource/bin/xe-backup-metadata -c -k 10 -u $TEMPLATE_SR
 fi
 
 echo $SECTION_BREAK
