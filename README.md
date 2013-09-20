@@ -11,8 +11,6 @@ Round <github@markround.com>:
 
 [https://github.com/markround/XenServer-snapshot-backup](https://github.com/markround/XenServer-snapshot-backup)
 
-**WARNING: THIS SCRIPT DOES NOT CURRENTLY WORK WITH XENSERVER 6.2**
-
 ## Overview
 
 The script creates a snapshot of a running VM on a configurable schedule, and
